@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
+import './App.css';
 
 function App() {
   const [data, setData] = useState([]);
@@ -34,12 +35,19 @@ function App() {
         (person['First Name'] && person['First Name'].toLowerCase().includes(value.toLowerCase())) ||
         (person['Last Name'] && person['Last Name'].toLowerCase().includes(value.toLowerCase()))
       );
+
       setSearchResults(results);
-      setSelectedPerson(null);
+
+      // Automatically select person if only one match is found
+      if (results.length === 1) {
+        setSelectedPerson(results[0]);
+      } else {
+        setSelectedPerson(null);
+      }
     }
   };
 
-  // Handle selecting a person from the search results
+  // Handle selecting a person from the search results (for multiple results)
   const handleSelectPerson = (person) => {
     setSelectedPerson(person);
     setSearchResults([]);
@@ -48,21 +56,33 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Gravestone Search</h1>
+      <header>
+        <h1>Gravestone Search</h1>
+        {/* CemeteryMap Image */}
+        <img
+          className="cemetery-map"
+          src={`${process.env.PUBLIC_URL}/uploads/CemeteryMap.png`}
+          alt="Cemetery Map"
+        />
+      </header>
+
+      {/* Search Input */}
       <input
         type="text"
         value={query}
         onChange={handleSearch}
         placeholder="Search by first or last name"
+        className="search-box"
       />
 
+      {/* Display Search Results */}
       {searchResults.length > 1 && (
         <div>
           <h2>Multiple results found. Please select:</h2>
-          <ul>
+          <ul className="search-results">
             {searchResults.map((person, index) => (
               <li key={index}>
-                <button onClick={() => handleSelectPerson(person)}>
+                <button className="result-button" onClick={() => handleSelectPerson(person)}>
                   {person['First Name']} {person['Last Name']}
                 </button>
               </li>
@@ -71,28 +91,22 @@ function App() {
         </div>
       )}
 
+      {/* Display Selected Person's Information */}
       {selectedPerson && (
-        <div>
+        <div className="person-details">
           <h2>Gravestone Information for {selectedPerson['First Name']} {selectedPerson['Last Name']}</h2>
-          <p>Section: {selectedPerson['Section']}</p>
-          <p>Row/Area: {selectedPerson['Row/Area']}</p>
-          <p>Position: {selectedPerson['Position']}</p>
+          <p><strong>Section:</strong> {selectedPerson['Section']}</p>
+          <p><strong>Row/Area:</strong> {selectedPerson['Row/Area']}</p>
+          <p><strong>Position:</strong> {selectedPerson['Position']}</p>
           <img
+            className="person-image"
             src={`${process.env.PUBLIC_URL}/${selectedPerson['Image File']}`}
             alt={`${selectedPerson['First Name']} ${selectedPerson['Last Name']}`}
-            style={{ width: '600px', height: '400px' }}
           />
         </div>
       )}
 
-      {searchResults.length === 1 && (
-        <div>
-          <button onClick={() => handleSelectPerson(searchResults[0])}>
-            Show information for {searchResults[0]['First Name']} {searchResults[0]['Last Name']}
-          </button>
-        </div>
-      )}
-
+      {/* Handle No Results Found */}
       {searchResults.length === 0 && query && !selectedPerson && (
         <p>No results found.</p>
       )}

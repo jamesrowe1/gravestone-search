@@ -1,38 +1,71 @@
 .App {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cemetery-map {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.search-box {
+  padding: 10px;
+  width: 80%;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-results {
+  list-style: none;
+  padding: 0;
+}
+
+.result-button {
+  background-color: #4CAF50;
   color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.result-button:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.person-details {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.person-image {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+
+p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #333;
 }
