@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gravestone-search/static/css/main.417a2260.css",
-    "main.js": "/gravestone-search/static/js/main.3931b6b6.js",
+    "main.js": "/gravestone-search/static/js/main.faa39031.js",
     "static/js/453.d5b4a5fb.chunk.js": "/gravestone-search/static/js/453.d5b4a5fb.chunk.js",
     "index.html": "/gravestone-search/index.html",
     "main.417a2260.css.map": "/gravestone-search/static/css/main.417a2260.css.map",
-    "main.3931b6b6.js.map": "/gravestone-search/static/js/main.3931b6b6.js.map",
+    "main.faa39031.js.map": "/gravestone-search/static/js/main.faa39031.js.map",
     "453.d5b4a5fb.chunk.js.map": "/gravestone-search/static/js/453.d5b4a5fb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.417a2260.css",
-    "static/js/main.3931b6b6.js"
+    "static/js/main.faa39031.js"
   ]
 }
