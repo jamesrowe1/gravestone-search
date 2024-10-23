@@ -10,7 +10,7 @@ function App() {
 
   // Load the CSV data when the component mounts
   useEffect(() => {
-    fetch('/data/graves.csv')
+    fetch(`${process.env.PUBLIC_URL}/data/graves.csv`)
       .then(response => response.text())
       .then(csvText => {
         Papa.parse(csvText, {
