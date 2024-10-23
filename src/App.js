@@ -61,8 +61,11 @@ function App() {
         please select the appropriate individual.
       </p>
 
-      <div className="content-container">
+      {/* <div className="content-container"> */}
         {/* Cemetery Map Image */}
+        
+
+        <div className="search-and-info">
         <div className="map-section">
           <img
             className="cemetery-map"
@@ -70,8 +73,6 @@ function App() {
             alt="Cemetery Map"
           />
         </div>
-
-        <div className="search-and-info">
           <div className="search-section">
             <input
               className="search-input"
@@ -81,7 +82,7 @@ function App() {
               placeholder="Search by first or last name"
             />
           </div>
-
+          
           {/* Show multiple search results */}
           {searchResults.length > 1 && (
             <div className="results-list">
@@ -119,7 +120,7 @@ function App() {
           )}
         </div>
       </div>
-    </div>
+    // </div>
   );
 }
 
