@@ -78,7 +78,7 @@ function App() {
           <p>Row/Area: {selectedPerson['Row/Area']}</p>
           <p>Position: {selectedPerson['Position']}</p>
           <img
-            src={`/uploads/${selectedPerson['Image File']}`}
+            src={`${process.env.PUBLIC_URL}/${selectedPerson['Image File']}`}
             alt={`${selectedPerson['First Name']} ${selectedPerson['Last Name']}`}
             style={{ width: '600px', height: '400px' }}
           />
